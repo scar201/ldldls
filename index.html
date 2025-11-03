@@ -1,0 +1,761 @@
+<!DOCTYPE html>
+<html lang="ar" dir="rtl">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Legesty City - سيرفر الحياة الواقعية الأفضل</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'Arial', sans-serif;
+            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            color: #ffffff;
+            overflow-x: hidden;
+        }
+
+        /* Header */
+        .header {
+            position: fixed;
+            top: 0;
+            width: 100%;
+            background: rgba(15, 15, 35, 0.95);
+            backdrop-filter: blur(10px);
+            z-index: 1000;
+            padding: 1rem 0;
+            border-bottom: 2px solid #000000;
+        }
+
+        .nav-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 0 2rem;
+        }
+
+        .logo {
+            font-size: 2rem;
+            font-weight: bold;
+            background: linear-gradient(45deg, #7affff, #5ce1e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 20px rgba(122, 255, 255, 0.5);
+        }
+
+        .nav-menu {
+            display: flex;
+            list-style: none;
+            gap: 2rem;
+        }
+
+        .nav-item a {
+            color: #ffffff;
+            text-decoration: none;
+            padding: 0.5rem 1rem;
+            border-radius: 25px;
+            transition: all 0.3s ease;
+            position: relative;
+        }
+
+        .nav-item a:hover {
+            background: linear-gradient(45deg, #7affff, #5ce1e6);
+            transform: translateY(-2px);
+            box-shadow: 0 5px 15px rgba(122, 255, 255, 0.4);
+        }
+
+        /* Hero Section */
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: 
+                linear-gradient(rgba(15, 15, 35, 0.8), rgba(15, 15, 35, 0.8)),
+                url('data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAH0AyADASIAAhEBAxEB/8QAHwAAAQUBAQEBAQEAAAAAAAAAAAECAwQFBgcICQoL/8QAtRAAAgEDAwIEAwUFBAQAAAF9AQIDAAQRBRIhMUEGE1FhByJxFDKBkaEII0KxwRVS0fAkM2JyggkKFhcYGRolJicoKSo0NTY3ODk6Q0RFRkdISUpTVFVWV1hZWmNkZWZnaGlqc3R1dnd4eXqDhIWGh4iJipKTlJWWl5iZmqKjpKWmp6ipqrKztLW2t7i5usLDxMXGx8jJytLT1NXW19jZ2uHi4+Tl5ufo6erx8vP09fb3+Pn6/8QAHwEAAwEBAQEBAQEBAQAAAAAAAAECAwQFBgcICQoL/8QAtREAAgECBAQDBAcFBAQAAQJ3AAECAxEEBSExBhJBUQdhcRMiMoEIFEKRobHBCSMzUvAVYnLRChYkNOEl8RcYGRomJygpKjU2Nzg5OkNERUZHSElKU1RVVldYWVpjZGVmZ2hpanN0dXZ3eHl6goOEhYaHiImKkpOUlZaXmJmaoqOkpaanqKmqsrO0tba3uLm6wsPExcbHyMnK0tPU1dbX2Nna4uPk5ebn6Onq8vP09fb3+Pn6/9oADAMBAAIRAxEAPwD3+iiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigAooooAKKKKACiiigD/9k=');
+            background-size: cover;
+            background-position: center;
+            text-align: center;
+            position: relative;
+        }
+
+        .hero::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            background: radial-gradient(circle at 50% 50%, rgba(255, 107, 53, 0.1) 0%, transparent 70%);
+        }
+
+        .hero-content {
+            max-width: 800px;
+            z-index: 2;
+            position: relative;
+        }
+
+        .hero h1 {
+            font-size: 4rem;
+            margin-bottom: 1rem;
+            background: linear-gradient(45deg, #7affff, #5ce1e6, #ffffff);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            text-shadow: 0 0 30px rgba(122, 255, 255, 0.5);
+            animation: glow 3s ease-in-out infinite alternate;
+        }
+
+        @keyframes glow {
+            from { filter: drop-shadow(0 0 10px rgba(122, 255, 255, 0.5)); }
+            to { filter: drop-shadow(0 0 20px rgba(122, 255, 255, 0.8)); }
+        }
+
+        .hero p {
+            font-size: 1.5rem;
+            margin-bottom: 2rem;
+            opacity: 0.9;
+        }
+
+        .cta-buttons {
+            display: flex;
+            gap: 1rem;
+            justify-content: center;
+            flex-wrap: wrap;
+        }
+
+        .btn {
+            padding: 1rem 2rem;
+            border: none;
+            border-radius: 50px;
+            font-size: 1.1rem;
+            font-weight: bold;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-decoration: none;
+            display: inline-block;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .btn-primary {
+            background: transparent;
+            color: white;
+            border: 2px solid #7affff;
+        }
+
+        .btn-secondary {
+            background: transparent;
+            color: white;
+            border: 2px solid #7affff;
+        }
+
+        .btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(122, 255, 255, 0.4);
+        }
+
+        /* Stats Section */
+        .stats {
+            padding: 4rem 2rem;
+            background: rgba(26, 26, 46, 0.8);
+        }
+
+        .stats-container {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .stat-card {
+            background: linear-gradient(135deg, rgba(122, 255, 255, 0.1), rgba(92, 225, 230, 0.1));
+            padding: 2rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(122, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .stat-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 30px rgba(122, 255, 255, 0.2);
+        }
+
+        .stat-number {
+            font-size: 3rem;
+            font-weight: bold;
+            color: #7affff;
+            margin-bottom: 0.5rem;
+        }
+
+        .stat-label {
+            font-size: 1.2rem;
+            opacity: 0.8;
+        }
+
+        /* Features Section */
+        .features {
+            padding: 4rem 2rem;
+        }
+
+        .section-title {
+            text-align: center;
+            font-size: 3rem;
+            margin-bottom: 3rem;
+            background: linear-gradient(45deg, #7affff, #5ce1e6);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+        }
+
+        .features-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 2rem;
+        }
+
+        .feature-card {
+            background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.05));
+            padding: 2rem;
+            border-radius: 20px;
+            backdrop-filter: blur(10px);
+            border: 1px solid rgba(122, 255, 255, 0.2);
+            transition: all 0.3s ease;
+        }
+
+        .feature-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 20px 40px rgba(122, 255, 255, 0.3);
+            border-color: rgba(122, 255, 255, 0.5);
+        }
+
+        .feature-icon {
+            font-size: 3rem;
+            margin-bottom: 1rem;
+            color: #7affff;
+        }
+
+        .feature-title {
+            font-size: 1.5rem;
+            margin-bottom: 1rem;
+            color: #ffffff;
+        }
+
+        .feature-description {
+            opacity: 0.8;
+            line-height: 1.6;
+        }
+
+        /* Jobs Section */
+        .jobs {
+            padding: 4rem 2rem;
+            background: rgba(22, 33, 62, 0.8);
+        }
+
+        .jobs-grid {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+        }
+
+        .job-card {
+            background: linear-gradient(135deg, rgba(122, 255, 255, 0.15), rgba(92, 225, 230, 0.15));
+            padding: 1.5rem;
+            border-radius: 15px;
+            text-align: center;
+            border: 1px solid rgba(122, 255, 255, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .job-card:hover {
+            transform: scale(1.05);
+            box-shadow: 0 15px 30px rgba(122, 255, 255, 0.2);
+        }
+
+        .job-icon {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+            color: #5ce1e6;
+        }
+
+        /* Rules Section */
+        .rules {
+            padding: 4rem 2rem;
+        }
+
+        .rules-container {
+            max-width: 800px;
+            margin: 0 auto;
+        }
+
+        .rule-item {
+            background: rgba(255, 255, 255, 0.1);
+            margin-bottom: 1rem;
+            padding: 1.5rem;
+            border-radius: 10px;
+            border-right: 4px solid #7affff;
+            transition: all 0.3s ease;
+        }
+
+        .rule-item:hover {
+            background: rgba(122, 255, 255, 0.1);
+            transform: translateX(10px);
+        }
+
+        /* Discord Section */
+        .discord {
+            padding: 4rem 2rem;
+            background: linear-gradient(135deg, #7289da, #5865f2);
+            text-align: center;
+        }
+
+        .discord-content {
+            max-width: 600px;
+            margin: 0 auto;
+        }
+
+        .discord h2 {
+            font-size: 2.5rem;
+            margin-bottom: 1rem;
+        }
+
+        .discord-btn {
+            background: #ffffff;
+            color: #5865f2;
+            padding: 1rem 2rem;
+            border-radius: 50px;
+            text-decoration: none;
+            font-weight: bold;
+            display: inline-block;
+            margin-top: 1rem;
+            transition: all 0.3s ease;
+        }
+
+        .discord-btn:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        }
+
+        /* Footer */
+        .footer {
+            background: #0f0f23;
+            padding: 3rem 2rem 1rem;
+            border-top: 2px solid #ff6b35;
+        }
+
+        .footer-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 2rem;
+            margin-bottom: 2rem;
+        }
+
+        .footer-section h3 {
+            color: #ff6b35;
+            margin-bottom: 1rem;
+        }
+
+        .footer-section ul {
+            list-style: none;
+        }
+
+        .footer-section ul li {
+            margin-bottom: 0.5rem;
+        }
+
+        .footer-section ul li a {
+            color: #ffffff;
+            text-decoration: none;
+            opacity: 0.8;
+            transition: opacity 0.3s ease;
+        }
+
+        .footer-section ul li a:hover {
+            opacity: 1;
+            color: #ff6b35;
+        }
+
+        .footer-bottom {
+            text-align: center;
+            padding-top: 2rem;
+            border-top: 1px solid rgba(255, 107, 53, 0.3);
+            opacity: 0.6;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .nav-menu {
+                display: none;
+            }
+            
+            .hero h1 {
+                font-size: 2.5rem;
+            }
+            
+            .hero p {
+                font-size: 1.2rem;
+            }
+            
+            .cta-buttons {
+                flex-direction: column;
+                align-items: center;
+            }
+        }
+
+        /* Animations */
+        .fade-in {
+            opacity: 0;
+            transform: translateY(30px);
+            animation: fadeInUp 1s ease forwards;
+        }
+
+        @keyframes fadeInUp {
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        /* Particle Animation */
+        .particles {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            pointer-events: none;
+            z-index: -1;
+        }
+
+        .particle {
+            position: absolute;
+            width: 2px;
+            height: 2px;
+            background: #7affff;
+            border-radius: 50%;
+            animation: float 6s infinite linear;
+        }
+
+        @keyframes float {
+            0% {
+                opacity: 0;
+                transform: translateY(100vh) scale(0);
+            }
+            10% {
+                opacity: 1;
+            }
+            90% {
+                opacity: 1;
+            }
+            100% {
+                opacity: 0;
+                transform: translateY(-100vh) scale(1);
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- Particles Background -->
+    <div class="particles" id="particles"></div>
+
+    <!-- Header -->
+    <header class="header">
+        <nav class="nav-container">
+            <div class="logo"> Legesty City RP</div>
+            <ul class="nav-menu">
+                <li class="nav-item"><a href="#home">الرئيسية</a></li>
+                <li class="nav-item"><a href="#features">المميزات</a></li>
+                <li class="nav-item"><a href="#jobs">الوظائف</a></li>
+                <li class="nav-item"><a href="#rules">القوانين</a></li>
+                <li class="nav-item"><a href="#" id="exam-link">الاختبار الإلكتروني</a></li>
+                <li class="nav-item"><a href="#discord">ديسكورد</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <h1>مرحباً بك في Legesty City</h1>
+            <p>أفضل سيرفر الحياة الواقعية في Roblox</p>
+            <div class="cta-buttons">
+                <a href="https://www.roblox.com/games/121442357510404/Legesty-City-Cfw" target="_blank" class="btn btn-primary">ابدأ اللعب الآن</a>
+                <a href="#features" class="btn btn-secondary">تعرف على المزيد</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stats Section -->
+    <section class="stats">
+        <div class="stats-container">
+            <div class="stat-card fade-in">
+                <div class="stat-number">4+</div>
+                <div class="stat-label">رقابيين متواجدين</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">24/7</div>
+                <div class="stat-label">لاعبين متواجدين</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">10+</div>
+                <div class="stat-label">وظيفة متنوعة</div>
+            </div>
+            <div class="stat-card fade-in">
+                <div class="stat-number">5★</div>
+                <div class="stat-label">تقييم ممتاز</div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="features">
+        <h2 class="section-title">مميزات السيرفر</h2>
+        <div class="features-grid">
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🏙️</div>
+                <h3 class="feature-title">مدينة حقيقية</h3>
+                <p class="feature-description">مدينة مفصلة بالكامل في Roblox مع مباني حقيقية وأماكن تفاعلية للاستكشاف</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">💼</div>
+                <h3 class="feature-title">وظائف متنوعة</h3>
+                <p class="feature-description">أكثر من 10 وظيفة مختلفة من الطبيب إلى رجل الأعمال إلى المجرم</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🚗</div>
+                <h3 class="feature-title">سيارات حصرية</h3>
+                <p class="feature-description">مجموعة ضخمة من السيارات والمركبات المتنوعة في Roblox</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🏠</div>
+                <h3 class="feature-title">عقارات للبيع</h3>
+                <p class="feature-description">اشترِ منزلك الخاص أو شقة أو حتى فيلا فاخرة في أفضل الأحياء</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">👮‍♂️</div>
+                <h3 class="feature-title">نظام شرطة متطور</h3>
+                <p class="feature-description">نظام شرطة واقعي مع دوريات وتحقيقات وقضايا جنائية</p>
+            </div>
+            <div class="feature-card fade-in">
+                <div class="feature-icon">🎭</div>
+                <h3 class="feature-title">أحداث مستمرة</h3>
+                <p class="feature-description">فعاليات وأحداث يومية تجعل التجربة مثيرة ومتجددة</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Jobs Section -->
+    <section id="jobs" class="jobs">
+        <h2 class="section-title">الوظائف المتاحة</h2>
+        <div class="jobs-grid">
+            <div class="job-card fade-in">
+                <div class="job-icon">👮‍♂️</div>
+                <h3>شرطي</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">🚑</div>
+                <h3>مسعف</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">👨‍💼</div>
+                <h3>رجل أعمال</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">🚖</div>
+                <h3>سائق تاكسي</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">🔧</div>
+                <h3>ميكانيكي</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">🏪</div>
+                <h3>صاحب متجر</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">📺</div>
+                <h3>صحفي</h3>
+            </div>
+            <div class="job-card fade-in">
+                <div class="job-icon">💰</div>
+                <h3>كاشير</h3>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rules Section -->
+    <section id="rules" class="rules">
+        <h2 class="section-title">قوانين السيرفر</h2>
+        <div class="rules-container">
+            <div class="rule-item fade-in">
+                <h3>🚫 عدم التخريب</h3>
+                <p>ممنوع التخريب أو إفساد تجربة اللاعبين الآخرين</p>
+            </div>
+            <div class="rule-item fade-in">
+                <h3>🎭 اللعب بالشخصية</h3>
+                <p>يجب الالتزام بشخصيتك والتصرف بواقعية</p>
+            </div>
+            <div class="rule-item fade-in">
+                <h3>💬 الاحترام المتبادل</h3>
+                <p>احترم جميع اللاعبين وتجنب السب والشتم</p>
+            </div>
+            <div class="rule-item fade-in">
+                <h3>🚗 القيادة الآمنة</h3>
+                <p>قد بحذر واتبع قوانين المرور</p>
+            </div>
+            <div class="rule-item fade-in">
+                <h3>⚖️ العدالة</h3>
+                <p>لا تستغل الأخطاء أو تستخدم الغش</p>
+            </div>
+        </div>
+    </section>
+
+    <!-- Discord Section -->
+    <section id="discord" class="discord">
+        <div class="discord-content">
+            <h2>انضم إلى مجتمعنا</h2>
+            <p>تواصل مع اللاعبين الآخرين واحصل على آخر الأخبار والتحديثات</p>
+            <a href="https://discord.gg/fm4" class="discord-btn">انضم إلى Discord</a>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="footer-content">
+            <div class="footer-section">
+                <h3>Legesty City</h3>
+                <p>أفضل سيرفر الحياة الواقعية في Roblox. انضم إلينا وعش تجربة لا تُنسى.</p>
+            </div>
+            <div class="footer-section">
+                <h3>روابط سريعة</h3>
+                <ul>
+                    <li><a href="#home">الرئيسية</a></li>
+                    <li><a href="#features">المميزات</a></li>
+                    <li><a href="#jobs">الوظائف</a></li>
+                    <li><a href="#rules">القوانين</a></li>
+                    <li><a href="https://salehddev.github.io/Legesty.City.Store/" target="_blank">متجر ليجستي ستي</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>تواصل معنا</h3>
+                <ul>
+                    <li><a href="#">Discord</a></li>
+                </ul>
+            </div>
+            <div class="footer-section">
+                <h3>معلومات السيرفر</h3>
+                <ul>
+                    <li>أعضاء السيرفر: 4328</li>
+                    <li>الحالة: متصل</li>
+                </ul>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <p>&copy; 2025 Legesty City. جميع الحقوق محفوظة.</p>
+        </div>
+    </footer>
+
+    <script>
+        // Smooth scrolling
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+
+        // Particles animation
+        function createParticles() {
+            const particlesContainer = document.getElementById('particles');
+            
+            for (let i = 0; i < 50; i++) {
+                const particle = document.createElement('div');
+                particle.className = 'particle';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.animationDuration = (Math.random() * 3 + 2) + 's';
+                particle.style.animationDelay = Math.random() * 2 + 's';
+                particlesContainer.appendChild(particle);
+            }
+        }
+
+        // Fade in animation on scroll
+        function handleScrollAnimations() {
+            const elements = document.querySelectorAll('.fade-in');
+            elements.forEach(element => {
+                const elementTop = element.getBoundingClientRect().top;
+                const elementVisible = 150;
+                
+                if (elementTop < window.innerHeight - elementVisible) {
+                    element.style.opacity = '1';
+                    element.style.transform = 'translateY(0)';
+                }
+            });
+        }
+
+        // Initialize
+        document.addEventListener('DOMContentLoaded', function() {
+            createParticles();
+            handleScrollAnimations();
+            
+            // Exam link functionality
+            const examLink = document.getElementById('exam-link');
+            examLink.addEventListener('click', function(e) {
+                e.preventDefault();
+                window.open('https://salehddev.github.io/Legesty.City.Electronic-test/', '_blank');
+            });
+            
+            // Update stats with animation
+            const statNumbers = document.querySelectorAll('.stat-number');
+            statNumbers.forEach(stat => {
+                const finalNumber = stat.textContent;
+                const isPlus = finalNumber.includes('+');
+                const isStar = finalNumber.includes('★');
+                const isSlash = finalNumber.includes('/');
+                
+                if (!isPlus && !isStar && !isSlash) {
+                    let currentNumber = 0;
+                    const increment = parseInt(finalNumber) / 100;
+                    const timer = setInterval(() => {
+                        currentNumber += increment;
+                        if (currentNumber >= parseInt(finalNumber)) {
+                            stat.textContent = finalNumber;
+                            clearInterval(timer);
+                        } else {
+                            stat.textContent = Math.floor(currentNumber);
+                        }
+                    }, 20);
+                }
+            });
+        });
+
+        window.addEventListener('scroll', handleScrollAnimations);
+
+        // Header scroll effect
+        window.addEventListener('scroll', function() {
+            const header = document.querySelector('.header');
+            if (window.scrollY > 100) {
+                header.style.background = 'rgba(15, 15, 35, 0.98)';
+            } else {
+                header.style.background = 'rgba(15, 15, 35, 0.95)';
+            }
+        });
+    </script>
+</body>
+</html>
