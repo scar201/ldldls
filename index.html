@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Legesty City - سيرفر الحياة الواقعية الأفضل</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cairo:wght@400;700;900&display=swap" rel="stylesheet">
     <style>
         * {
             margin: 0;
@@ -11,9 +12,9 @@
             box-sizing: border-box;
         }
         body {
-            font-family: 'Arial', sans-serif;
-            background: #002e5d;
-            color: #7affff;
+            font-family: 'Cairo', 'Arial', sans-serif;
+            background: #0a1128;
+            color: #ffffff;
             overflow-x: hidden;
             position: relative;
         }
@@ -26,9 +27,9 @@
             width: 100%;
             height: 100%;
             background: 
-                linear-gradient(135deg, rgba(26, 35, 126, 0.4) 0%, transparent 50%),
-                linear-gradient(225deg, rgba(13, 71, 161, 0.4) 0%, transparent 50%),
-                linear-gradient(315deg, rgba(21, 101, 192, 0.3) 0%, transparent 50%);
+                linear-gradient(135deg, rgba(10, 17, 40, 0.6) 0%, transparent 50%),
+                linear-gradient(225deg, rgba(5, 30, 60, 0.6) 0%, transparent 50%),
+                linear-gradient(315deg, rgba(8, 40, 80, 0.5) 0%, transparent 50%);
             z-index: -3;
         }
 
@@ -41,8 +42,8 @@
             height: 100%;
             background-image: 
                 polygon(50% 0%, 0% 100%, 100% 100%),
-                linear-gradient(120deg, transparent 30%, rgba(30, 58, 138, 0.3) 30%, rgba(30, 58, 138, 0.3) 35%, transparent 35%),
-                linear-gradient(240deg, transparent 30%, rgba(59, 130, 246, 0.2) 30%, rgba(59, 130, 246, 0.2) 35%, transparent 35%);
+                linear-gradient(120deg, transparent 30%, rgba(10, 30, 80, 0.3) 30%, rgba(10, 30, 80, 0.3) 35%, transparent 35%),
+                linear-gradient(240deg, transparent 30%, rgba(20, 50, 120, 0.2) 30%, rgba(20, 50, 120, 0.2) 35%, transparent 35%);
             background-size: 100% 100%, 200px 200px, 180px 180px;
             animation: moveShapes 20s linear infinite;
             z-index: -2;
@@ -66,7 +67,7 @@
 
         .geometric-shape {
             position: absolute;
-            border: 2px solid #3b82f6;
+            border: 2px solid #7affff;
             animation: float 15s ease-in-out infinite;
         }
 
@@ -135,8 +136,8 @@
         .logo {
             font-size: 2rem;
             font-weight: 900;
-            color: #818cf8;
-            text-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+            color: #7affff;
+            text-shadow: 0 0 20px rgba(122, 255, 255, 0.5);
             letter-spacing: 1px;
             display: flex;
             align-items: center;
@@ -146,14 +147,14 @@
         .logo-icon {
             width: 50px;
             height: 50px;
-            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            background: linear-gradient(135deg, #0a1128 0%, #1a1f3a 100%);
             border-radius: 12px;
             display: flex;
             align-items: center;
             justify-content: center;
             font-size: 1.5rem;
-            box-shadow: 0 0 20px rgba(129, 140, 248, 0.3);
-            border: 2px solid #818cf8;
+            box-shadow: 0 0 20px rgba(122, 255, 255, 0.3);
+            border: 2px solid #7affff;
         }
 
         .nav-menu {
@@ -209,8 +210,8 @@
             margin-bottom: 1rem;
             font-weight: 900;
             letter-spacing: 2px;
-            color: #818cf8;
-            text-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+            color: #7affff;
+            text-shadow: 0 0 20px rgba(122, 255, 255, 0.5);
         }
 
         .hero p {
@@ -393,7 +394,7 @@
 
         .discord {
             padding: 4rem 2rem;
-            background: linear-gradient(135deg, #7289da, #5865f2);
+            background: linear-gradient(135deg, #1e3a8a, #1e40af);
             text-align: center;
         }
 
@@ -409,7 +410,7 @@
 
         .discord-btn {
             background: #ffffff;
-            color: #5865f2;
+            color: #1e40af;
             padding: 1rem 2rem;
             border-radius: 50px;
             text-decoration: none;
@@ -501,10 +502,10 @@
             height: 2px;
             background: #7affff;
             border-radius: 50%;
-            animation: float 6s infinite linear;
+            animation: floatParticle 6s infinite linear;
         }
 
-        @keyframes float {
+        @keyframes floatParticle {
             0% {
                 opacity: 0;
                 transform: translateY(100vh) scale(0);
