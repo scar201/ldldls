@@ -12,9 +12,10 @@
         }
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
-            color: #ffffff;
+            background: #002e5d;
+            color: #7affff;
             overflow-x: hidden;
+            position: relative;
         }
 
         body::before {
@@ -133,10 +134,26 @@
 
         .logo {
             font-size: 2rem;
-            font-weight: bold;
-            background: linear-gradient(45deg, #7affff, #5ce1e6);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            color: #818cf8;
+            text-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
+            letter-spacing: 1px;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+        }
+
+        .logo-icon {
+            width: 50px;
+            height: 50px;
+            background: linear-gradient(135deg, #1e1b4b 0%, #312e81 100%);
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+            box-shadow: 0 0 20px rgba(129, 140, 248, 0.3);
+            border: 2px solid #818cf8;
         }
 
         .nav-menu {
@@ -190,9 +207,10 @@
         .hero h1 {
             font-size: 2.5rem;
             margin-bottom: 1rem;
-            background: linear-gradient(45deg, #7affff, #5ce1e6, #ffffff);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
+            font-weight: 900;
+            letter-spacing: 2px;
+            color: #818cf8;
+            text-shadow: 0 0 20px rgba(129, 140, 248, 0.5);
         }
 
         .hero p {
@@ -506,11 +524,13 @@
 </head>
 <body>
     <div class="particles" id="particles"></div>
+    <div class="geometric-bg">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+    </div>
 
-    <header class="header">
-        <nav class="nav-container">
-            <div class="logo">Legesty City RP</div>
-            <ul class="nav-menu">
+
                 <li class="nav-item"><a href="#home">الرئيسية</a></li>
                 <li class="nav-item"><a href="#features">المميزات</a></li>
                 <li class="nav-item"><a href="#jobs">الوظائف</a></li>
