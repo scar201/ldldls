@@ -12,9 +12,104 @@
         }
         body {
             font-family: 'Arial', sans-serif;
-            background: linear-gradient(135deg, #0f0f23 0%, #1a1a2e 50%, #16213e 100%);
+            background: #0a1128;
             color: #ffffff;
             overflow-x: hidden;
+            position: relative;
+        }
+
+        body::before {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: 
+                linear-gradient(135deg, rgba(26, 35, 126, 0.4) 0%, transparent 50%),
+                linear-gradient(225deg, rgba(13, 71, 161, 0.4) 0%, transparent 50%),
+                linear-gradient(315deg, rgba(21, 101, 192, 0.3) 0%, transparent 50%);
+            z-index: -3;
+        }
+
+        body::after {
+            content: '';
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-image: 
+                polygon(50% 0%, 0% 100%, 100% 100%),
+                linear-gradient(120deg, transparent 30%, rgba(30, 58, 138, 0.3) 30%, rgba(30, 58, 138, 0.3) 35%, transparent 35%),
+                linear-gradient(240deg, transparent 30%, rgba(59, 130, 246, 0.2) 30%, rgba(59, 130, 246, 0.2) 35%, transparent 35%);
+            background-size: 100% 100%, 200px 200px, 180px 180px;
+            animation: moveShapes 20s linear infinite;
+            z-index: -2;
+            opacity: 0.6;
+        }
+
+        @keyframes moveShapes {
+            0% { background-position: 0% 0%, 0% 0%, 0% 0%; }
+            100% { background-position: 0% 0%, 200px 200px, -180px -180px; }
+        }
+
+        .geometric-bg {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            z-index: -1;
+            opacity: 0.15;
+        }
+
+        .geometric-shape {
+            position: absolute;
+            border: 2px solid #3b82f6;
+            animation: float 15s ease-in-out infinite;
+        }
+
+        .shape-1 {
+            width: 300px;
+            height: 300px;
+            top: 10%;
+            left: 5%;
+            clip-path: polygon(50% 0%, 100% 38%, 82% 100%, 18% 100%, 0% 38%);
+            animation-delay: 0s;
+        }
+
+        .shape-2 {
+            width: 200px;
+            height: 200px;
+            top: 60%;
+            right: 10%;
+            clip-path: polygon(30% 0%, 70% 0%, 100% 30%, 100% 70%, 70% 100%, 30% 100%, 0% 70%, 0% 30%);
+            animation-delay: 2s;
+        }
+
+        .shape-3 {
+            width: 250px;
+            height: 250px;
+            bottom: 15%;
+            left: 15%;
+            clip-path: polygon(50% 0%, 90% 20%, 100% 60%, 75% 100%, 25% 100%, 0% 60%, 10% 20%);
+            animation-delay: 4s;
+        }
+
+        @keyframes float {
+            0%, 100% {
+                transform: translateY(0) rotate(0deg);
+            }
+            25% {
+                transform: translateY(-30px) rotate(5deg);
+            }
+            50% {
+                transform: translateY(-60px) rotate(-5deg);
+            }
+            75% {
+                transform: translateY(-30px) rotate(3deg);
+            }
         }
 
         .header {
@@ -70,7 +165,7 @@
             display: flex;
             align-items: center;
             justify-content: center;
-            background: linear-gradient(rgba(15, 15, 35, 0.8), rgba(15, 15, 35, 0.8));
+            background: transparent;
             text-align: center;
             position: relative;
         }
@@ -412,6 +507,11 @@
 </head>
 <body>
     <div class="particles" id="particles"></div>
+    <div class="geometric-bg">
+        <div class="geometric-shape shape-1"></div>
+        <div class="geometric-shape shape-2"></div>
+        <div class="geometric-shape shape-3"></div>
+    </div>
 
     <header class="header">
         <nav class="nav-container">
@@ -428,7 +528,7 @@
 
     <section id="home" class="hero">
         <div class="hero-content">
-            <img src="https://cdn.discordapp.com/attachments/1433935799388340315/1434934335517098034/0cbf86d2a6be8bb1f8640b82029649ff.webp?ex=690a223d&is=6908d0bd&hm=609c96aa07b033809067af175fff186e12d11e32aafffbe75425bd65ff117e07&" alt="Legesty City Logo" class="hero-logo">
+            <img src="https://i.postimg.cc/3Nvmfgv5/IMG-1925.png" alt="Legesty City Logo" class="hero-logo">
             <h1>مرحباً بك في Legesty City</h1>
             <p>أفضل سيرفر الحياة الواقعية في Roblox</p>
             <div class="cta-buttons">
